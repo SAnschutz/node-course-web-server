@@ -22,6 +22,8 @@ app.use((req, res, next) => {
     next();
 });
 
+// maintenance code below -- comment out to run app normally
+
 // app.use((req, res, next) => {
 //     res.render('maintenance.hbs');
 // });
@@ -51,12 +53,21 @@ app.get('/about', (req, res) => {
     });
 });
 
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Portfolio Page'
+    });
+});
+
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'Unable to fulfill this request'
     });
 });
 
+
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
 });
+
+
